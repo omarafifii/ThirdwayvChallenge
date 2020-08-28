@@ -14,7 +14,7 @@
         android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:gravity="center_horizontal"
         android:layout_marginBottom="8dp"
         android:text="Result = 0" />
@@ -37,51 +37,72 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_undo"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="14sp"
+            android:textColor="#2979ff"
+            android:background="@android:color/transparent"
             android:text="Undo" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_plus"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#2979ff"
+            android:background="@android:color/transparent"
+            android:textSize="18sp"
             android:text="+" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_minus"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#2979ff"
+            android:background="@android:color/transparent"
+            android:textSize="18sp"
             android:text="-" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_multiply"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#2979ff"
+            android:background="@android:color/transparent"
+            android:textSize="18sp"
             android:text="*" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_divide"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#2979ff"
+            android:background="@android:color/transparent"
+            android:textSize="18sp"
             android:text="/" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_equals"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#2979ff"
+            android:background="@android:color/transparent"
+            android:textSize="18sp"
             android:text="=" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_redo"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="#2979ff"
+            android:background="@android:color/transparent"
+            android:textSize="18sp"
             android:text="Redo" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -91,8 +112,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
+        android:background="@android:color/black"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="6"
+        app:spanCount="4"
         tools:listitem="@layout/history_item"/>
 
 

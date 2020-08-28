@@ -16,8 +16,9 @@ import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    ArrayList<String> operationsList;
-    ArrayList<Integer> numbersList;
+    private ArrayList<String> operationsList;
+    private ArrayList<Integer> numbersList;
+    private static View.OnClickListener mOnItemClickListener;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -30,6 +31,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(HistoryItemBinding b) {
             super(b.getRoot());
             hBinding = b;
+            hBinding.getRoot().setTag(this);
+//            itemView.setTag(this);
+            hBinding.getRoot().setOnClickListener(mOnItemClickListener);
+//            itemView.setOnClickListener(mOnItemClickListener);
         }
 
     }
@@ -38,6 +43,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public MyAdapter (ArrayList<String> operationsList,ArrayList<Integer> numbersList){
         this.numbersList = numbersList;
         this.operationsList = operationsList;
+    }
+
+    public void setOnItemClickListener(View.OnClickListener itemClickListener) {
+        mOnItemClickListener = itemClickListener;
     }
 
     // Create new views (invoked by the layout manager)
