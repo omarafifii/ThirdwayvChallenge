@@ -24,12 +24,43 @@ public class MainActivity extends AppCompatActivity {
     private String operation;
     private int lastResult = 0;
     private View.OnClickListener onItemClickListener = new View.OnClickListener() {
+
+        /**
+         *
+         * Is called when an item in the recyclerView is clicked
+         *
+         * @param view a viewHolder object representing an item in the recyclerView
+         */
         @Override
         public void onClick(View view) {
             recyclerUndo(view);
         }
     };
 
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
+
+    public int getLastResult() {
+        return lastResult;
+    }
+
+    public void setLastResult(int lastResult) {
+        this.lastResult = lastResult;
+    }
+
+    public ActivityMainBinding getBinding() {
+        return binding;
+    }
+
+    public void setBinding(ActivityMainBinding binding) {
+        this.binding = binding;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +76,14 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(onItemClickListener);
 
         binding.btPlus.setOnClickListener(new View.OnClickListener() {
+
+            /**
+             * Is called when the button is clicked and it adjusts which buttons are enabled and
+             * which are disabled.
+             * It also updates the value of the operation variable
+             *
+             * @param view btn on which the user clicked
+             */
             @Override
             public void onClick(View view) {
                 binding.btDivide.setEnabled(false);
@@ -57,6 +96,13 @@ public class MainActivity extends AppCompatActivity {
 
         binding.btMinus.setOnClickListener(new View.OnClickListener() {
             @Override
+            /**
+             * Is called when the button is clicked and it adjusts which buttons are enabled and
+             * which are disabled.
+             * It also updates the value of the operation variable
+             *
+             * @param view btn on which the user clicked
+             */
             public void onClick(View view) {
                 binding.btDivide.setEnabled(false);
                 binding.btPlus.setEnabled(false);
@@ -67,6 +113,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.btMultiply.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Is called when the button is clicked and it adjusts which buttons are enabled and
+             * which are disabled.
+             * It also updates the value of the operation variable
+             *
+             * @param view btn on which the user clicked
+             */
             @Override
             public void onClick(View view) {
                 binding.btDivide.setEnabled(false);
@@ -78,6 +131,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.btDivide.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Is called when the button is clicked and it adjusts which buttons are enabled and
+             * which are disabled.
+             * It also updates the value of the operation variable
+             *
+             * @param view btn on which the user clicked
+             */
             @Override
             public void onClick(View view) {
                 binding.btMinus.setEnabled(false);
@@ -89,6 +149,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.btEquals.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Execute the equalsBtnClicked method when the button is clicked.
+             *
+             * @param view btn on which the user clicked
+             */
             @Override
             public void onClick(View view) {
                 equalsBtnClicked();
@@ -96,6 +161,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.btUndo.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Execute the undoClicked method when the button is clicked.
+             *
+             * @param view btn on which the user clicked
+             */
             @Override
             public void onClick(View view) {
                 undoClicked();
@@ -103,6 +173,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.btRedo.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Execute the redoClicked method when the button is clicked.
+             *
+             * @param view btn on which the user clicked
+             */
             @Override
             public void onClick(View view) {
                 redoClicked();
@@ -114,7 +189,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void redoClicked() {
+    /**
+     * Executes the redo operation if there is an operationto redo
+     */
+    public void redoClicked() {
         if(redoNumbers.size() > 0){
             String pastOperation = redoOperations.get(redoOperations.size() - 1);
             int pastNumber = redoNumbers.get(redoNumbers.size() - 1);
@@ -142,7 +220,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void recyclerUndo(View view) {
+    /**
+     * It creates the undo function for the item that was clicked on from the list of past operations.
+     *
+     * @param view the viewHolder object that was clicked on by the user
+     */
+    public void recyclerUndo(View view) {
         RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
         int position = viewHolder.getAdapterPosition();
         String pastOperation = pastOperations.get(position);
@@ -167,7 +250,10 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
     }
 
-    private void undoClicked() {
+    /**
+     * Checks if an undo operation is possible and if it is then it undoes the last operation
+     */
+    public void undoClicked() {
         if(pastNumbers.size() > 0){
             String pastOperation = pastOperations.get(pastOperations.size() - 1);
             int pastNumber = pastNumbers.get(pastNumbers.size() - 1);
@@ -195,6 +281,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * When the equals button is clicked it checks if the user has input a number in the text field
+     * and if so it executes the operation and adds it to the list in the bottom.
+     *
+     * It also makes the operation buttons enabled once again.
+     */
     public void equalsBtnClicked(){
         int result = 0;
         int input = 0;
