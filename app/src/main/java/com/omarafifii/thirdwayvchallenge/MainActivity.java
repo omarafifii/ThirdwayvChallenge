@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
+        binding.btEquals.setEnabled(false);
         setContentView(view);
 
         recyclerView = binding.rvHistory;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 binding.btDivide.setEnabled(false);
                 binding.btMinus.setEnabled(false);
                 binding.btMultiply.setEnabled(false);
+                binding.btEquals.setEnabled(true);
                 operation = "+";
             }
         });
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 binding.btDivide.setEnabled(false);
                 binding.btPlus.setEnabled(false);
                 binding.btMultiply.setEnabled(false);
+                binding.btEquals.setEnabled(true);
                 operation = "-";
             }
         });
@@ -69,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 binding.btDivide.setEnabled(false);
                 binding.btPlus.setEnabled(false);
                 binding.btMinus.setEnabled(false);
+                binding.btEquals.setEnabled(true);
                 operation = "*";
             }
         });
@@ -79,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 binding.btMinus.setEnabled(false);
                 binding.btPlus.setEnabled(false);
                 binding.btMultiply.setEnabled(false);
+                binding.btEquals.setEnabled(true);
                 operation = "/";
             }
         });
@@ -191,14 +196,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void equalsBtnClicked(){
-        binding.btMinus.setEnabled(true);
-        binding.btPlus.setEnabled(true);
-        binding.btMultiply.setEnabled(true);
-        binding.btDivide.setEnabled(true);
         int result = 0;
         int input = 0;
         if (binding.edNumber.getText().toString().trim().length() == 0 || binding.edNumber.getText().toString().matches("")
         || binding.edNumber.getText().equals(null)){
+            Toast.makeText(this,"Please enter a number!",Toast.LENGTH_SHORT).show();
             return;
         }else{
             input = Integer.parseInt(binding.edNumber.getText().toString());
@@ -220,6 +222,11 @@ public class MainActivity extends AppCompatActivity {
         redoNumbers.clear();
         redoOperations.clear();
         mAdapter.notifyDataSetChanged();
+        binding.btEquals.setEnabled(false);
+        binding.btMinus.setEnabled(true);
+        binding.btPlus.setEnabled(true);
+        binding.btMultiply.setEnabled(true);
+        binding.btDivide.setEnabled(true);
     }
 
 

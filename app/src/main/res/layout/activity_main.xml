@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="14sp"
-            android:textColor="#2979ff"
+            android:textColor="@color/disabled_btn_text_color"
             android:background="@android:color/transparent"
             android:text="Undo" />
 
@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#2979ff"
+            android:textColor="@color/disabled_btn_text_color"
             android:background="@android:color/transparent"
             android:textSize="18sp"
             android:text="+" />
@@ -60,7 +60,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#2979ff"
+            android:textColor="@color/disabled_btn_text_color"
             android:background="@android:color/transparent"
             android:textSize="18sp"
             android:text="-" />
@@ -70,7 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#2979ff"
+            android:textColor="@color/disabled_btn_text_color"
             android:background="@android:color/transparent"
             android:textSize="18sp"
             android:text="*" />
@@ -80,7 +80,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#2979ff"
+            android:textColor="@color/disabled_btn_text_color"
             android:background="@android:color/transparent"
             android:textSize="18sp"
             android:text="/" />
@@ -90,7 +90,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#2979ff"
+            android:textColor="@color/disabled_btn_text_color"
             android:background="@android:color/transparent"
             android:textSize="18sp"
             android:text="=" />
@@ -100,7 +100,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textColor="#2979ff"
+            android:textColor="@color/disabled_btn_text_color"
             android:background="@android:color/transparent"
             android:textSize="18sp"
             android:text="Redo" />
